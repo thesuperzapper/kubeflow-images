@@ -1,0 +1,13 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '--build-arg=BASE_IMAGE_REPO=${_BASE_IMAGE_REPO}'
+  - '--build-arg=BASE_IMAGE_VERSION=${_BASE_IMAGE_VERSION}'
+  - '--build-arg=NB_UI_TYPE=${_NB_UI_TYPE}'
+  - '--build-arg=INSTALL_SPARK=${_INSTALL_SPARK}'
+  - '--build-arg=INSTALL_SPARK_VERSION=${_INSTALL_SPARK_VERSION}'
+  - '--tag=${_GCR_IMAGE_TAG}'
+  - '.'
+images:
+- '${_GCR_IMAGE_TAG}'
